@@ -39,5 +39,8 @@ project/plugins/project/
 frontend/node_modules/*
 frontend/dist/*
 
+# Play
+**/gradle/*
+
 # Others
 RUNNING_PID
