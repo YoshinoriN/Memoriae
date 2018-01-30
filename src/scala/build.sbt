@@ -9,3 +9,10 @@ scalacOptions ++= Seq(
   "-feature",
   "-unchecked"
 )
+
+libraryDependencies ++= Seq(
+  "net.codingwell" %% "scala-guice" % "4.1.0",
+  guice
+)
+
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
