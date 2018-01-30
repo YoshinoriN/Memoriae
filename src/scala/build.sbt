@@ -12,6 +12,8 @@ scalacOptions ++= Seq(
 
 libraryDependencies ++= Seq(
   "net.codingwell" %% "scala-guice" % "4.1.0",
+  "org.mariadb.jdbc" % "mariadb-java-client" % "2.2.1",
+  "org.flywaydb" % "flyway-core" % "5.0.6",
   guice
 )
 
