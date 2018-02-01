@@ -1,3 +1,5 @@
+import scalariform.formatter.preferences._
+
 val Organization = "net.yoshinorin"
 val Name = "memoriae"
 val version = "0.0.1"
@@ -18,3 +20,9 @@ libraryDependencies ++= Seq(
 )
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
+
+//********************************************************
+// Scalariform settings
+//********************************************************
+
+scalariformAutoformat := true
