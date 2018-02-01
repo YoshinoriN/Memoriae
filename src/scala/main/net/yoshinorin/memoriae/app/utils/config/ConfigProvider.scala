@@ -1,4 +1,4 @@
-package app.utils.config
+package net.yoshinorin.memoriae.utils.config
 
 import com.typesafe.config.ConfigFactory
 
