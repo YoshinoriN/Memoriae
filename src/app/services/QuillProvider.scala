@@ -7,7 +7,7 @@ import io.getquill.{ MysqlJdbcContext, SnakeCase }
  */
 trait QuillProvider {
 
-  lazy val ctx = new MysqlJdbcContext[SnakeCase](SnakeCase, "ctx")
+  lazy val ctx = new MysqlJdbcContext[SnakeCase](SnakeCase, "db.ctx")
 
 }
 
