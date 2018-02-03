@@ -22,9 +22,3 @@ libraryDependencies ++= Seq(
 )
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
-//********************************************************
-// Scalariform settings
-//********************************************************
-
-scalariformAutoformat := true
