@@ -1,4 +1,4 @@
-package net.yoshinorin.memoriae.controllers
+package memoriae.controllers
 
 import javax.inject._
 import play.api._

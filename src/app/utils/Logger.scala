@@ -1,4 +1,4 @@
-package net.yoshinorin.memoriae.utils
+package memoriae.utils
 
 import org.slf4j.{ LoggerFactory, MarkerFactory }
 

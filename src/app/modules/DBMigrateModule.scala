@@ -1,10 +1,10 @@
-package net.yoshinorin.memoriae.modules
+package memoriae.modules
 
 import com.google.inject.AbstractModule
 import io.getquill._
 import org.flywaydb.core.Flyway
-import net.yoshinorin.memoriae.utils.config.db.{ DBConfig, Migrate }
-import net.yoshinorin.memoriae.utils.Logger
+import memoriae.utils.config.db.{ DBConfig, Migrate }
+import memoriae.utils.Logger
 
 class DBMigrateModule extends AbstractModule with Logger {
 

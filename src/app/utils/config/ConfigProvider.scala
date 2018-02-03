@@ -1,4 +1,4 @@
-package net.yoshinorin.memoriae.utils.config
+package memoriae.utils.config
 
 import com.typesafe.config.ConfigFactory
 

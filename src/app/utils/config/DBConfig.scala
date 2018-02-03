@@ -1,6 +1,6 @@
-package net.yoshinorin.memoriae.utils.config.db
+package memoriae.utils.config.db
 
-import net.yoshinorin.memoriae.utils.config.ConfigProvider
+import memoriae.utils.config.ConfigProvider
 
 object DBConfig extends ConfigProvider {
 
