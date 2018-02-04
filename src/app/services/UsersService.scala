@@ -2,6 +2,7 @@ package memoriae.services
 
 import memoriae.models.Users
 import memoriae.utils.Logger
+import memoriae.utils.auth.BCryptPasswordEncoder
 
 object UsersService extends QuillProvider with Logger {
 
@@ -30,7 +31,7 @@ object UsersService extends QuillProvider with Logger {
       val q = quote {
         query[Users].insert(
           _.userName -> lift("admin"),
-          _.password -> lift("pass"), //TODO: BCrypt
+          _.password -> lift(BCryptPasswordEncoder.encode("pass")),
           _.isAdmin -> lift(true),
           _.forcePasswordReset -> lift(true)
         )
