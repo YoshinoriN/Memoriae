@@ -1,0 +1,30 @@
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import controllers.AssetsFinder
+
+@()(implicit request: RequestHeader, messages: Messages, assets: AssetsFinder)
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">
+    <ul class="uk-navbar-nav">
+      <li><a href="#" uk-icon="home"></a></li>
+    </ul>
+  </div>
+  <div class="uk-navbar-right">
+    <div class="uk-navbar-item">
+      <form action="javascript:void(0)">
+        <input class="uk-input uk-form-width-small" type="text" placeholder="Search...">
+      </form>
+    </div>
+    <ul class="uk-navbar-nav">
+      <li>
+        <a href="#" uk-icon="more-vertical"></a>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li><a href="#">SignIn</a></li>
+            <li><a href="#">About Memoriae</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
