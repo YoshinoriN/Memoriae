@@ -1,5 +1,9 @@
-@()
+@import play.api.data.Form
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import controllers.AssetsFinder
+@()(implicit request: RequestHeader, messages: Messages, assets: AssetsFinder)
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
+@main("Memoriae") {
+
 }
