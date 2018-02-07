@@ -6,7 +6,7 @@ import play.api.mvc.{ AbstractController, AnyContent, ControllerComponents }
 import controllers.AssetsFinder
 
 @Singleton
-class HomeController @Inject() (
+class ApplicationController @Inject() (
   cc: ControllerComponents
 )(
   implicit
