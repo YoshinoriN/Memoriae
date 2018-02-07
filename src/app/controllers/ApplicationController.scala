@@ -7,11 +7,11 @@ import controllers.AssetsFinder
 
 @Singleton
 class ApplicationController @Inject() (
-  cc: ControllerComponents
+  components: ControllerComponents
 )(
   implicit
   assets: AssetsFinder
-) extends AbstractController(cc) with I18nSupport {
+) extends AbstractController(components) with I18nSupport {
 
   def index() = Action { implicit request =>
     Ok(views.html.index())
