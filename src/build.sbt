@@ -12,12 +12,20 @@ scalacOptions ++= Seq(
   "-unchecked"
 )
 
+resolvers += Resolver.jcenterRepo
+
 libraryDependencies ++= Seq(
   "net.codingwell" %% "scala-guice" % "4.1.0",
   "org.mariadb.jdbc" % "mariadb-java-client" % "2.2.1",
   "io.getquill" %% "quill-jdbc" % "2.3.2",
   "org.flywaydb" % "flyway-core" % "5.0.7",
   "org.springframework.security" % "spring-security-web" % "5.0.1.RELEASE",
+  "com.iheart" %% "ficus" % "1.4.3",
+  "com.mohiva" %% "play-silhouette" % "5.0.3",
+  "com.mohiva" %% "play-silhouette-password-bcrypt" % "5.0.3",
+  "com.mohiva" %% "play-silhouette-persistence" % "5.0.3",
+  "com.mohiva" %% "play-silhouette-crypto-jca" % "5.0.3",
+  "com.mohiva" %% "play-silhouette-testkit" % "5.0.3" % "test",
   guice
 )
 
