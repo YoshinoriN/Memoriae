@@ -6,7 +6,25 @@
 <nav class="uk-navbar-container" uk-navbar>
   <div class="uk-navbar-left uk-margin-small-left">
     <ul class="uk-navbar-nav">
-      <li><a href="#" uk-icon="home"></a></li>
+      <li>
+        <a href="#" uk-icon="menu"></a>
+        <div class="uk-navbar-dropdown uk-dark">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li>
+              <a href="#">
+                <span uk-icon="icon: home" class="uk-margin-small-right uk-icon"></span>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span uk-icon="icon: tag" class="uk-margin-small-right uk-icon"></span>
+                <span>Tags</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
     </ul>
   </div>
   <div class="uk-navbar-right uk-margin-small-right">
@@ -18,10 +36,20 @@
     <ul class="uk-navbar-nav">
       <li>
         <a href="#" uk-icon="more-vertical"></a>
-        <div class="uk-navbar-dropdown">
+        <div class="uk-navbar-dropdown uk-dark">
           <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li><a href="#">SignIn</a></li>
-            <li><a href="#">About Memoriae</a></li>
+            <li>
+              <a href="#">
+                <span uk-icon="icon: sign-in" class="uk-margin-small-right uk-icon"></span>
+                <span>SignIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span uk-icon="icon: info" class="uk-margin-small-right uk-icon"></span>
+                <span>About Memoriae</span>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
