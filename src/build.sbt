@@ -26,7 +26,10 @@ libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette-persistence" % "5.0.3",
   "com.mohiva" %% "play-silhouette-crypto-jca" % "5.0.3",
   "com.mohiva" %% "play-silhouette-testkit" % "5.0.3" % "test",
-  guice
+  guice,
+  filters
 )
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
+
+routesGenerator := InjectedRoutesGenerator
