@@ -17,24 +17,23 @@ import com.mohiva.play.silhouette.crypto.{ JcaCrypter, JcaCrypterSettings, JcaSi
 import com.mohiva.play.silhouette.impl.authenticators._
 import com.mohiva.play.silhouette.impl.providers._
 import com.mohiva.play.silhouette.impl.providers.state.{ CsrfStateItemHandler, CsrfStateSettings }
-import com.mohiva.play.silhouette.impl.services._
 import com.mohiva.play.silhouette.impl.util._
 import com.mohiva.play.silhouette.password.{ BCryptPasswordHasher, BCryptSha256PasswordHasher }
 import com.mohiva.play.silhouette.persistence.daos.DelegableAuthInfoDAO
 import com.mohiva.play.silhouette.persistence.repositories.DelegableAuthInfoRepository
+import net.ceedubs.ficus.Ficus._
+import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 import net.codingwell.scalaguice.ScalaModule
 import memoriae.models.services._
 import memoriae.models.daos._
 import memoriae.utils.auth.{ CustomSecuredErrorHandler, CustomUnsecuredErrorHandler, JWTEnv }
 
-import scala.concurrent.duration.Duration
-
 class SilhouetteModule extends AbstractModule with ScalaModule {
 
-  def configure(): Unit = {
+  def configure() {
     bind[Silhouette[JWTEnv]].to[SilhouetteProvider[JWTEnv]]
-    //bind(classOf[UnsecuredErrorHandler]).to(classOf[CustomUnsecuredErrorHandler])
-    //bind(classOf[SecuredErrorHandler]).to(classOf[CustomSecuredErrorHandler])
+    bind[SecuredErrorHandler].to[CustomSecuredErrorHandler]
+    bind[UnsecuredErrorHandler].to[CustomUnsecuredErrorHandler]
     bind[CacheLayer].to[PlayCacheLayer]
     bind[IDGenerator].toInstance(new SecureRandomIDGenerator())
     bind[FingerprintGenerator].toInstance(new DefaultFingerprintGenerator(false))
@@ -85,7 +84,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
    */
   @Provides @Named("csrf-state-item-signer")
   def provideCSRFStateItemSigner(configuration: Configuration): Signer = {
-    val config = configuration.get[String]("silhouette.csrfStateItemHandler.signer").asInstanceOf[JcaSignerSettings]
+    val config = configuration.underlying.as[JcaSignerSettings]("silhouette.csrfStateItemHandler.signer")
 
     new JcaSigner(config)
   }
@@ -98,7 +97,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
    */
   @Provides @Named("authenticator-signer")
   def provideAuthenticatorSigner(configuration: Configuration): Signer = {
-    val config = configuration.get[String]("silhouette.authenticator.signer").asInstanceOf[JcaSignerSettings]
+    val config = configuration.underlying.as[JcaSignerSettings]("silhouette.authenticator.signer")
 
     new JcaSigner(config)
   }
@@ -111,7 +110,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
    */
   @Provides @Named("authenticator-crypter")
   def provideAuthenticatorCrypter(configuration: Configuration): Crypter = {
-    val config = configuration.get[String]("silhouette.authenticator.crypter").asInstanceOf[JcaCrypterSettings]
+    val config = configuration.underlying.as[JcaCrypterSettings]("silhouette.authenticator.crypter")
 
     new JcaCrypter(config)
   }
@@ -171,7 +170,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
     @Named("csrf-state-item-signer") signer: Signer,
     configuration: Configuration
   ): CsrfStateItemHandler = {
-    val settings = configuration.get[String]("silhouette.csrfStateItemHandler").asInstanceOf[CsrfStateSettings]
+    val settings = configuration.underlying.as[CsrfStateSettings]("silhouette.csrfStateItemHandler")
     new CsrfStateItemHandler(settings, idGenerator, signer)
   }
 
