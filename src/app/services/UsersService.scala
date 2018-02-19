@@ -9,6 +9,16 @@ object UsersService extends QuillProvider with Logger {
   import ctx._;
 
   /**
+   * Find user by user name.
+   *
+   * @param userName The user name.
+   * @return [[Users]]
+   */
+  def findUserByName(userName: String): Option[Users] = {
+    run(query[Users].filter(u => u.userName == lift(userName) && u.deletedAt.isEmpty)).headOption
+  }
+
+  /**
    * Check existence administrator
    *
    * @return [[Boolean]]
