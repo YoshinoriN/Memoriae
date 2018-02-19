@@ -9,6 +9,26 @@ object UsersService extends QuillProvider with Logger {
   import ctx._;
 
   /**
+   * Authenticate user.
+   *
+   * @param userName The user name to authenticate.
+   * @param password The user's password
+   * @return [[Users]]
+   */
+  def authenticate(userName: String, password: String): Option[Users] = {
+    findUserByName(userName) match {
+      case Some(user) => {
+        if (BCryptPasswordEncoder.matches(password, user.password)) {
+          Some(user)
+        } else {
+          None
+        }
+      }
+      case _ => None
+    }
+  }
+
+  /**
    * Find user by user name.
    *
    * @param userName The user name.
