@@ -15,7 +15,6 @@ scalacOptions ++= Seq(
 resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= Seq(
-  "net.codingwell" %% "scala-guice" % "4.1.0",
   "org.mariadb.jdbc" % "mariadb-java-client" % "2.2.1",
   "io.getquill" %% "quill-jdbc" % "2.3.2",
   "org.flywaydb" % "flyway-core" % "5.0.7",
