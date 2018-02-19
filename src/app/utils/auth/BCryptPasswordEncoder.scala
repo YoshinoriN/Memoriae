@@ -9,7 +9,7 @@ object BCryptPasswordEncoder {
   /**
    * Encode plain text.
    *
-   * @param [[String]]
+   * @param plainText Text to encode.
    * @return The hashed password
    */
   def encode(plainText: String): String = {
