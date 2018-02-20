@@ -18,11 +18,11 @@ import memoriae.utils.auth.JWTEnv
 import AuthController._
 
 object AuthController {
-  case class SignInFormData(uid: String, password: String)
+  case class SignInFormData(username: String, password: String)
 
   val signInForm = Form(
     mapping(
-      "id" -> nonEmptyText,
+      "username" -> nonEmptyText,
       "password" -> nonEmptyText,
     )(SignInFormData.apply)(SignInFormData.unapply)
   )

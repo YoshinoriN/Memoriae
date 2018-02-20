@@ -10,33 +10,31 @@
 @main(messages("sign.in.title")) {
   <div class="uk-margin-large-top flex-center">
     <div class="uk-card uk-card-secondary uk-card-body">
-      <form class="uk-margin-large-top">
-        <fieldset class="uk-fieldset">
-          @form(CSRF(memoriae.controllers.routes.AuthController.signIn)) {
-          <div>
-            @inputText(
-            signInForm("id"),
+      <fieldset class="uk-fieldset">
+        @form(CSRF(memoriae.controllers.routes.AuthController.signIn)) {
+        <div>
+          @inputText(
+            signInForm("username"),
             'class -> "uk-input",
             'type -> "text",
             'placeholder -> "UserName"
-            )
-          </div>
-          <br/>
-          <div>
-            @inputPassword(
+          )
+        </div>
+        <br/>
+        <div>
+          @inputPassword(
             signInForm("password"),
             'class -> "uk-input",
             'type -> "text",
             'placeholder -> "Password"
-            )
-          </div>
-          <br/><br/>
-          <button class="uk-button uk-button-default">
-            @messages("sign.in")
-          </button>
-          }
-        </fieldset>
-      </form>
+          )
+        </div>
+        <br/><br/>
+        <button class="uk-button uk-button-default">
+          @messages("sign.in")
+        </button>
+        }
+      </fieldset>
     </div>
   </div>
 }
