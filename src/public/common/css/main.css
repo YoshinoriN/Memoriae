@@ -5,3 +5,10 @@ html {
 .uk-navbar-container {
   background-color: #1b1b1b !important;
 }
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+

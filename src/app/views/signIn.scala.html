@@ -8,31 +8,35 @@
 @implicitField = @{ FieldConstructor(plainFieldConstructor.f) }
 
 @main(messages("sign.in.title")) {
-  <form>
-    <fieldset class="uk-fieldset">
-      @form(CSRF(memoriae.controllers.routes.AuthController.signIn)) {
-      <div class="uk-width-1-4">
-        @inputText(
-          signInForm("id"),
-          'class -> "uk-input",
-          'type -> "text",
-          'placeholder -> "UserName"
-        )
-      </div>
-      <br/>
-      <div class="uk-width-1-4">
-        @inputPassword(
-        signInForm("password"),
-          'class -> "uk-input",
-          'type -> "text",
-          'placeholder -> "Password"
-        )
-      </div>
-      <br/><br/>
-      <button class="uk-button uk-button-default">
-        @messages("sign.in")
-      </button>
-      }
-    </fieldset>
-  </form>
+  <div class="uk-margin-large-top flex-center">
+    <div class="uk-card uk-card-secondary uk-card-body">
+      <form class="uk-margin-large-top">
+        <fieldset class="uk-fieldset">
+          @form(CSRF(memoriae.controllers.routes.AuthController.signIn)) {
+          <div>
+            @inputText(
+            signInForm("id"),
+            'class -> "uk-input",
+            'type -> "text",
+            'placeholder -> "UserName"
+            )
+          </div>
+          <br/>
+          <div>
+            @inputPassword(
+            signInForm("password"),
+            'class -> "uk-input",
+            'type -> "text",
+            'placeholder -> "Password"
+            )
+          </div>
+          <br/><br/>
+          <button class="uk-button uk-button-default">
+            @messages("sign.in")
+          </button>
+          }
+        </fieldset>
+      </form>
+    </div>
+  </div>
 }
