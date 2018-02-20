@@ -13,7 +13,7 @@ object BCryptPasswordEncoder {
    * @return The hashed password
    */
   def encode(plainText: String): String = {
-    return bcrypt.encode(plainText)
+    bcrypt.encode(plainText)
   }
 
   /**
@@ -24,7 +24,7 @@ object BCryptPasswordEncoder {
    * @return Password match or not.
    */
   def matches(plainPassword: String, encodedPassword: String): Boolean = {
-    return bcrypt.matches(plainPassword, encodedPassword);
+    bcrypt.matches(plainPassword, encodedPassword)
   }
 
 }
