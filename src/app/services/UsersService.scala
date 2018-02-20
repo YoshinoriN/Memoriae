@@ -44,10 +44,7 @@ object UsersService extends QuillProvider with Logger {
    * @return [[Boolean]]
    */
   def existsAdmin: Boolean = {
-    val q = quote {
-      query[Users].filter(u => u.isAdmin == true && u.deletedAt.isEmpty)
-    }
-    run(q).headOption match {
+    run(query[Users].filter(u => u.isAdmin == true && u.deletedAt.isEmpty)).headOption match {
       case Some(_) => true
       case _ => false
     }
@@ -58,15 +55,14 @@ object UsersService extends QuillProvider with Logger {
    */
   def createDefaultAdmin = {
     if (!existsAdmin) {
-      val q = quote {
+      run(
         query[Users].insert(
           _.userName -> lift("admin"),
           _.password -> lift(BCryptPasswordEncoder.encode("pass")),
           _.isAdmin -> lift(true),
           _.forcePasswordReset -> lift(true)
         )
-      }
-      run(q)
+      )
       logger.info("Created default administrator (user name is admin)")
     }
   }
