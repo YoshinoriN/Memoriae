@@ -7,9 +7,9 @@ import scala.reflect.ClassTag
 import play.api.cache.ehcache.EhCacheApi
 import net.sf.ehcache.CacheManager
 
-trait EhCacheProvider {
+class EhCacheProvider(cacheName: String) {
 
-  val name: String
+  private val name = cacheName
   private val cacheManager = CacheManager.create
   cacheManager.addCache(name)
 
