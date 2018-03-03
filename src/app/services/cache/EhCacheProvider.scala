@@ -1,4 +1,4 @@
-package memoriae.services
+package memoriae.services.cache
 
 import scala.concurrent.duration.{ Duration, _ }
 import scala.concurrent.{ Await, Future }
