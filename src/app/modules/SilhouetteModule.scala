@@ -24,9 +24,9 @@ import com.mohiva.play.silhouette.persistence.repositories.DelegableAuthInfoRepo
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 import net.codingwell.scalaguice.ScalaModule
-import memoriae.models.services._
 import memoriae.models.daos._
 import memoriae.utils.auth.{ CustomSecuredErrorHandler, CustomUnsecuredErrorHandler, JWTEnv }
+import memoriae.services.{ UserIdentifyService, UserIdentifyServiceTrait }
 
 class SilhouetteModule extends AbstractModule with ScalaModule {
 

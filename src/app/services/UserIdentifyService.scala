@@ -1,11 +1,13 @@
-package memoriae.models.services
+package memoriae.services
 
 import javax.inject.Inject
-import scala.concurrent.{ ExecutionContext, Future }
+
 import com.mohiva.play.silhouette.api.LoginInfo
 import com.mohiva.play.silhouette.api.services.IdentityService
 import memoriae.models.UserIdentify
 import memoriae.models.daos.UserDAO
+
+import scala.concurrent.{ ExecutionContext, Future }
 
 trait UserIdentifyServiceTrait extends IdentityService[UserIdentify] {
 
