@@ -33,6 +33,8 @@ libraryDependencies ++= Seq(
   filters
 )
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root = (project in file(".")).enablePlugins(PlayScala, SbtWeb)
+pipelineStages := Seq(digest)
+pipelineStages in Assets := Seq(digest)
 
 routesGenerator := InjectedRoutesGenerator
