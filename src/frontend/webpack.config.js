@@ -26,14 +26,6 @@ module.exports = [
         },
       ],
     },
-    plugins: [
-      new CopyWebpackPlugin([
-        {
-          from: path.resolve(__dirname, 'src/_js'),
-          to: path.resolve(__dirname, 'dist')
-        }
-      ]),
-    ],
     resolve: {
       alias: {
         'vue$': 'vue/dist/vue.js'
