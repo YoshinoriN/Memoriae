@@ -1,6 +1,6 @@
-# memoriae-front-end
+# Frontend
 
-> memoriae-front-end
+Frontend for Memoriae.
 
 ## Build Setup
 
@@ -16,8 +16,6 @@ yarn run dev
 
 # build for production with minification
 yarn run build
-
-# build for production and view the bundle analyzer report
 ```
 
 ## Upgrade dependency
