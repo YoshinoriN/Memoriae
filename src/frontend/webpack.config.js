@@ -9,7 +9,7 @@ module.exports = [
       style: "./index.js",
     },
     output: {
-      path: path.join(__dirname, '../public/common/js'),
+      path: path.join(__dirname, '../public/js'),
       filename: 'main.js'
     },
     module: {
@@ -38,7 +38,7 @@ module.exports = [
       style: "./style.scss",
     },
     output: {
-      path: path.join(__dirname, '../public/common/css'),
+      path: path.join(__dirname, '../public/css'),
       filename: 'style.css'
     },
     module: {
