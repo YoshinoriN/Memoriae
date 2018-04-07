@@ -10,44 +10,44 @@ CREATE TABLE users (
   deleted_at DATETIME DEFAULT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE visibility (
+CREATE TABLE visibilities (
   class VARCHAR(10) UNIQUE NOT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO visibility VALUES ('public');
-INSERT INTO visibility VALUES ('private');
+INSERT INTO visibilities VALUES ('public');
+INSERT INTO visibilities VALUES ('private');
 
-CREATE TABLE license (
+CREATE TABLE licenses (
   type VARCHAR(30) UNIQUE NOT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO license VALUES ('No License');
-INSERT INTO license VALUES ('CC0');
+INSERT INTO licenses VALUES ('No License');
+INSERT INTO licenses VALUES ('CC0');
 #TODO: add other licenses.
 
 CREATE TABLE albums (
-  name VARCHAR(255) NOT NULL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL PRIMARY KEY,
   description VARCHAR(255) NOT NULL DEFAULT '',
   visibility VARCHAR(10) NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY(visibility) REFERENCES visibility(class)
+  FOREIGN KEY(visibility) REFERENCES visibilities(class)
 ) DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE images (
-  name VARCHAR(255) NOT NULL PRIMARY KEY,
-  original_name VARCHAR(255) DEFAULT '',
+  filename VARCHAR(255) NOT NULL PRIMARY KEY,
+  original_filename VARCHAR(255) DEFAULT '',
   thumbnail VARCHAR(255) UNIQUE NOT NULL,
   title VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL DEFAULT '',
-  album VARCHAR(255) NOT NULL DEFAULT '',
+  album_title VARCHAR(255) NOT NULL DEFAULT '',
   visibility VARCHAR(10) NOT NULL,
   license VARCHAR(30) NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY(album) REFERENCES albums(name),
-  FOREIGN KEY(visibility) REFERENCES visibility(class),
-  FOREIGN KEY(license) REFERENCES license(type)
+  FOREIGN KEY(album_title) REFERENCES albums(title),
+  FOREIGN KEY(visibility) REFERENCES visibilities(class),
+  FOREIGN KEY(license) REFERENCES licenses(type)
 ) DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE tags (
