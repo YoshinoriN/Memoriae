@@ -7,3 +7,20 @@ $font-family-base: 'Open Sans';
 
 // Colors
 $background-color-base: #1b1b1b;
+
+// Indexed
+$z-indexes: (
+  'l-header': 2
+);
+
+//--------------------------
+// Layout Settings
+//--------------------------
+
+// Header
+$header:(
+  'height':     50px,
+  'background': #1b1b1b,
+  'color':      #88909a,
+  'border':     1px solid #000000
+);

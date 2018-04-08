@@ -1,0 +1,11 @@
+#header {
+  display: block;
+  width: 100%;
+  height: map-get($header, height);
+  background: map-get($header, background);
+  position: fixed;
+  top: 0;
+  border: map-get($header, background);
+  color: map-get($header, color);
+  z-index: map-get($z-indexes, l-header);
+}
