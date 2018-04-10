@@ -30,7 +30,7 @@ import memoriae.services.{ UserIdentifyService, UserIdentifyServiceTrait }
 
 class SilhouetteModule extends AbstractModule with ScalaModule {
 
-  def configure() {
+  override def configure() {
     bind[Silhouette[JWTEnv]].to[SilhouetteProvider[JWTEnv]]
     bind[SecuredErrorHandler].to[CustomSecuredErrorHandler]
     bind[UnsecuredErrorHandler].to[CustomUnsecuredErrorHandler]

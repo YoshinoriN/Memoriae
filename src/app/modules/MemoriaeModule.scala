@@ -5,7 +5,7 @@ import memoriae.bootstraps.DBMigrate
 
 class MemoriaeModule extends AbstractModule {
 
-  def configure() {
+  override def configure() {
     bind(classOf[DBMigrate]).asEagerSingleton()
   }
 
